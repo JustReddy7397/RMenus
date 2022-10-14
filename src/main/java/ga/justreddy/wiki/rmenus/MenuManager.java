@@ -18,9 +18,9 @@ public class MenuManager {
 
   private MenuManager() {}
 
-  public static void setMenuManager(JavaPlugin plugin, MenuManager menuManager) {
+  public static void setMenuManager(JavaPlugin plugin) {
     if (MenuManager.menuManager != null) return;
-    MenuManager.menuManager = menuManager;
+    MenuManager.menuManager = new MenuManager();
     MenuManager.openMenus = new HashMap<>();
     Bukkit.getPluginManager().registerEvents(new MenuListener(), plugin);
     new InventoryRefreshTask().runTaskTimerAsynchronously(plugin, 0, 20L);
